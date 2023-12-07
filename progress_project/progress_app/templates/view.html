@@ -63,10 +63,10 @@
             <div>
                 <h1>{{product_to_view.name}}</h1>
                 <h3>{{product_to_view.model}}</h3>
-                <a class="btn btn-lg btn-secondary" href="#">Order</a>
+                <a class="btn btn-lg btn-secondary" href="/order_product/{{product_to_view.id}}">Order</a>
             </div>
             <div>
-                <img id="product_image_view" src="{{product_to_view.image}}" alt="cam1">
+                <img id="product_image_view" src="{{product_to_view.image}}" alt="cam1" style="width: 400px;">
             </div>
         </section>
 
@@ -85,10 +85,10 @@
             <div class="w-25">
                 <h3>Specifications</h3>
                 <ul>
-                    <li>hight:</li>
-                    <li>width:</li>
-                    <li>Input_voltage:</li>
-                    <li>Indoor/outdoor:</li>
+                    <li>hight: {{ product_to_view.specification.height }}cm</li>
+                    <li>width: {{ product_to_view.specification.width }}cm</li>
+                    <li>Input_voltage: {{ product_to_view.specification.voltage }}v</li>
+                    <li>Indoor/outdoor: {{ product_to_view.specification.indoor_outdoor }}</li>
                 </ul>
             </div>
         </article>

@@ -102,30 +102,14 @@
           <section class="container border-top mt-4">
             <h2>Services</h2>
             <div class="row">
+                {% for serv in all_services %}
                 <div class="col text-center">
                     <div>
-                        <img src="{% static 'img\cam_image1.jpg' %}" alt="product_1">
+                        <img src="{{serv.image}}" alt="product_1" style="width: 400px;">
                     </div>
-                    <span>cam_1</span>
+                    <span>{{ serv.name }}</span>
                 </div>
-                <div class="col text-center">
-                    <div>
-                        <img src="{% static 'img\cam_image1.jpg' %}" alt="product_1">
-                    </div>
-                    <span>cam_1</span>
-                </div>
-                <div class="col text-center">
-                    <div>
-                        <img src="{% static 'img\cam_image1.jpg' %}" alt="product_1">
-                    </div>
-                    <span>cam_1</span>
-                </div>
-                <div class="col text-center">
-                    <div>
-                        <img src="{% static 'img\cam_image1.jpg' %}" alt="product_1">
-                    </div>
-                    <span>cam_1</span>
-                </div>
+                {% endfor %}
             </div>
         </section>
 
@@ -136,27 +120,27 @@
             <div class="row">
                 <div class="col text-center">
                     <div>
-                        <img src="{% static 'img\cam_image1.jpg' %}" alt="product_1">
+                        <img src="https://blog.twoosk.com/wp-content/uploads/2021/03/Canovate-Electronics-Logo-2.png" alt="product_1" style="width: 400px;">
                     </div>
-                    <span>cam_1</span>
+                    <span>Canovate</span>
                 </div>
                 <div class="col text-center">
                     <div>
-                        <img src="{% static 'img\cam_image1.jpg' %}" alt="product_1">
+                        <img src="https://sensorpartners.com/wp-content/uploads/2022/06/hikvision-logo.jpg" alt="product_1" style="width: 400px;">
                     </div>
-                    <span>cam_1</span>
+                    <span>hikvision</span>
                 </div>
                 <div class="col text-center">
                     <div>
-                        <img src="{% static 'img\cam_image1.jpg' %}" alt="product_1">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNRmz5KM6FcSUElrq91R3WkTKgNSm0-pIMaA&usqp=CAU" alt="product_1" style="width: 400px;">
                     </div>
-                    <span>cam_1</span>
+                    <span>BCI</span>
                 </div>
                 <div class="col text-center">
                     <div>
-                        <img src="{% static 'img\cam_image1.jpg' %}" alt="product_1">
+                        <img src="https://cdnjobs.net/cached_uploads/fit/650/315/2019/08/21/cmc-logo-1566410675.png" alt="product_1" style="width: 400px;">
                     </div>
-                    <span>cam_1</span>
+                    <span>CMC</span>
                 </div>
             </div>
         </section>
