@@ -1,10 +1,7 @@
 from django.shortcuts import render, redirect
 
 def main(request):
-    if 'id' in request.session:
-        return render(request, 'main.html')
-    else:
-        return redirect('/login')
+    return render(request, 'main.html')
 
 def login(request):
     return render(request, 'login.html')
@@ -19,4 +16,4 @@ def view(request):
     return render(request, 'view.html')
 
 def createEdit(request):
-     return render(request, 'create_edit.html')
+    return render(request, 'create_edit.html')

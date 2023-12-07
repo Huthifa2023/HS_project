@@ -14,10 +14,10 @@
 
         <div>
             <ul class="d-flex header_nav mt-3">
-                <li><a class="btn header_nav_btn border-dark ml-1" href="">Home</a></li>
-                <li><a class="btn header_nav_btn border-dark ml-1" href="">Products</a></li>
-                <li><a class="btn header_nav_btn border-dark ml-1" href="">About Us</a></li>
-                <li><a class="btn header_nav_btn border-dark ml-1" href="">Contact Us</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="/">Home</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="#">Products</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="/aboutus">About Us</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="/contactus">Contact Us</a></li>
             </ul>
         </div>
 
@@ -32,16 +32,17 @@
         </div>
 
         <div>
-            <a class="btn header_nav_btn border" href="#"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Login</a>
+            <a class="btn header_nav_btn border" href="/login"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Login</a>
             <a class="ml-3" href=""><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
         </div>
 
         <div>
             <ul class="menu">
-                <li><a class="menuItem" href="#">Home</a></li>
-                <li><a class="menuItem" href="#">Profile</a></li>
-                <li><a class="menuItem" href="#">About</a></li>
-                <li><a class="menuItem" href="#">Contact Us</a></li>
+                <li><a class="menuItem" href="#">My Cart</a></li>
+                <li><a class="menuItem" href="/">Home</a></li>
+                <li><a class="menuItem" href="#">Products</a></li>
+                <li><a class="menuItem" href="/aboutus">About us</a></li>
+                <li><a class="menuItem" href="/contactus">Contact Us</a></li>
             </ul>
             <button class="hamburger header_nav_btn">
                 <img class="icon_image" src="{% static 'img\menu_black.png' %}" alt="menu_icon">
