@@ -42,8 +42,14 @@ def products(request):
 def order_product(request, prod_id):
     current_user = Client.objects.get(id = request.session['id'])
     prod = Product.objects.get(id = prod_id)
-    prod.order_product.add()
 
+    new_order = Order(
+        client = current_user,
+    )
+    new_order.save()
+    new_order.product.add(prod)
+    request.session['orders_session'].append(new_order)
+    request.session['orders_session'].save()
     return redirect('/products')
 
 
@@ -71,7 +77,11 @@ def login_request(request):
         client = client[0]
         if bcrypt.checkpw(request.POST['password'].encode(), client.password.encode()):
             request.session['id'] = client.id
-            return redirect('/')
+            if 'orders_session' in request.session:
+                return redirect('/')
+            else:
+                request.session['orders_session'] = []
+                return redirect('/')
         else:
             messages.error(request, 'Wrong Email or Passowrd')
             return redirect('/login')
