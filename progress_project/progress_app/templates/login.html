@@ -6,6 +6,9 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>login & Registration</title>
 </head>
 <body>
@@ -36,9 +39,37 @@
                 <a class="btn header_nav_btn border" href="/login"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Login</a>
                 {% else %}
                 <a class="btn header_nav_btn border" href="/logout"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Logout</a>
-                {% endif %}                
-                <a class="ml-3" href=""><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
+                {% endif %}
+                <a class="ml-3" data-toggle="modal" data-target="#lab-slide-bottom-popup" href="#"><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
             </div>
+
+
+
+<!-- cart Body -->
+<div class="modal fade" id="lab-slide-bottom-popup" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal-body">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h1>Your Cart</h1>
+
+        <ol>
+            {% for p in all_orders %}
+            {% for x in p.prduct.all %}
+            <li>{{ x.name }}</li>
+            {%  endfor %}
+            {%  endfor %}
+            <li>ashdah</li>
+        </ol>
+
+
+        <div class="text-center">
+            <a href="/checkout" target="_blank" class="btn-primary btn-plain btn btn-lg popup-button">Checkout!</a>
+        </div>
+    </div>
+    <!-- /.modal-body -->
+</div>
+<!-- cart Body -->
+
+
 
             <div>
                 <ul class="menu">

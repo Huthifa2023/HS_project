@@ -10,7 +10,11 @@ def main(request):
     return render(request, 'main.html', context)
 
 def login(request):
-    return render(request, 'login.html')
+    current_user = Client.objects.get(id = request.session['id'])
+    context = {
+        'all_orders' : current_user.user_orders.all(),
+    }
+    return render(request, 'login.html', context)
 
 def aboutus(request):
     return render(request, "aboutus.html")
@@ -49,7 +53,6 @@ def order_product(request, prod_id):
     new_order.save()
     new_order.product.add(prod)
     request.session['orders_session'].append(new_order)
-    request.session['orders_session'].save()
     return redirect('/products')
 
 
