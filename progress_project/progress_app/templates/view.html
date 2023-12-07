@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>View</title>
+</head>
+<body>
+    <header  class="modal-header align-items-center">
+        <img id="logo_img" src="{% static 'img\logo_transparent_white_background.png' %}" alt="logo_transparent_white_background">
+
+        <div>
+            <ul class="d-flex header_nav mt-3">
+                <li><a class="btn header_nav_btn border-dark ml-1" href="">Home</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="">Products</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="">About Us</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="search-container">
+            <form class="form-inline" action="" method="post">
+                {% csrf_token %}
+                <div class="">
+                    <input class="form-control" type="text" placeholder="Search.." name="search">
+                    <button class="btn" type="submit"><img class="icon_image" src="{% static 'img\search-icon.png' %}" alt="search_icon"></button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <a class="btn header_nav_btn border" href="#"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Login</a>
+            <a class="ml-3" href=""><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
+        </div>
+
+        <div>
+            <ul class="menu">
+                <li><a class="menuItem" href="#">Home</a></li>
+                <li><a class="menuItem" href="#">Profile</a></li>
+                <li><a class="menuItem" href="#">About</a></li>
+                <li><a class="menuItem" href="#">Contact Us</a></li>
+            </ul>
+            <button class="hamburger header_nav_btn">
+                <img class="icon_image" src="{% static 'img\menu_black.png' %}" alt="menu_icon">
+                <!-- <i class="menuIcon material-icons">menu</i>
+                <i class="closeIcon material-icons">close</i> -->
+            </button>
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="d-flex justify-content-around align-items-center">
+            <div>
+                <h1>Hikvision_Cam1</h1>
+                <h3>iDS-2CD7046G0/E-IHSY(11-40mm)</h3>
+                <a class="btn btn-lg btn-secondary" href="#">Order</a>
+            </div>
+            <div>
+                <img id="product_image_view" src="{% static 'img\cam1.jpg' %}" alt="cam1">
+            </div>
+        </section>
+
+        <h1>Description</h1>
+        <article class="d-flex">
+            <div class="w-50">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias autem expedita et est? Sint, itaque. Dicta, possimus illum cumque autem voluptate hic omnis nihil pariatur dolore. Est numquam quisquam sapiente.</p>
+            </div>
+            <div class="w-25">
+                <ul>
+                    <li><a href="#">Manual</a></li>
+                    <li><a href="#">Datasheet</a></li>
+                    <li><a href="#">Cataloge</a></li>
+                </ul>
+            </div>
+            <div class="w-25">
+                <h3>Specifications</h3>
+                <ul>
+                    <li>hight:</li>
+                    <li>width:</li>
+                    <li>Input_voltage:</li>
+                    <li>Indoor/outdoor:</li>
+                </ul>
+            </div>
+        </article>
+
+    </main>
+
+
+    <footer class="d-flex justify-content-around">
+        <div class="w-25">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut odio, ducimus iure non sapiente at reiciendis fugit quisquam exercitationem, fuga beatae autem nihil quidem corporis labore. Distinctio velit maiores voluptatum.</p>
+        </div>
+
+        <div class="w-25">
+            <h3>Site Map</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="w-25">
+            <h3>Contact Us</h3>
+            <h6>info@progress.ps</h6>
+            <h6>+972 59-786-9686</h6>
+            <h6>FB.com/progresspalestine</h6>
+            <h6>Ramallah / Palestine</h6>
+        </div>
+            
+        <div class="w-25">
+            <img id="logo_img_footer" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_dark_background">
+        </div>
+        
+    </footer>
+</body>
+</html>

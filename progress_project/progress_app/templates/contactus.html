@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Contact Us</title>
+</head>
+<body>
+    <header  class="modal-header align-items-center">
+        <img id="logo_img" src="{% static 'img\logo_transparent_white_background.png' %}" alt="logo_transparent_white_background">
+
+        <div>
+            <ul class="d-flex header_nav mt-3">
+                <li><a class="btn header_nav_btn border-dark ml-1" href="">Home</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="">Products</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="">About Us</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="search-container">
+            <form class="form-inline" action="" method="post">
+                {% csrf_token %}
+                <div class="">
+                    <input class="form-control" type="text" placeholder="Search.." name="search">
+                    <button class="btn" type="submit"><img class="icon_image" src="{% static 'img\search-icon.png' %}" alt="search_icon"></button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <a class="btn header_nav_btn border" href="#"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Login</a>
+            <a class="ml-3" href=""><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
+        </div>
+
+        <div>
+            <ul class="menu">
+                <li><a class="menuItem" href="#">Home</a></li>
+                <li><a class="menuItem" href="#">Profile</a></li>
+                <li><a class="menuItem" href="#">About</a></li>
+                <li><a class="menuItem" href="#">Contact Us</a></li>
+            </ul>
+            <button class="hamburger header_nav_btn">
+                <img class="icon_image" src="{% static 'img\menu_black.png' %}" alt="menu_icon">
+                <!-- <i class="menuIcon material-icons">menu</i>
+                <i class="closeIcon material-icons">close</i> -->
+            </button>
+        </div>       
+    </header>
+    <main class="main-contactus mx-auto mb-4 mt-2">
+        <h1 class="text-center text-success mb-5 mt-5">Contact Us</h1>
+        <div class="d-flex flex-column">
+            <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between">
+                    <img class="image-icone ms-3" src="{% static 'img/address.jfif' %}" alt="location logo">
+                    <h4>Adress: Ramallah</h4>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <img class="image-icone" src="{% static 'img/phone.png' %}" alt="phone logo">
+                    <h4>Phone: +970229765</h4>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between mt-2">
+                <div class="d-flex justify-content-between">
+                    <img class="image-icone mt-1" src="{% static 'img/email.jfif' %}" alt="message logo">
+                    <h4>Email: shahrazad@gmail.com</h4>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <img class="image-icone" src="{% static 'img/fax.jfif' %}" alt="Fax logo">
+                    <h4>Fax: +970229760</h4>
+                </div>
+           </div>
+        </div>
+        <!--h3 class="text-center mt-5">Google Map</h3-->
+        <div class="google-map mt-5">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.274257380938!2d-70.56068388481569!3d41.45496659976631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e52963ac45bbcb%3A0xf05e8d125e82af10!2sDos%20Mas!5e0!3m2!1sen!2sus!4v1671220374408!5m2!1sen!2sus" 
+            width="600" height="450" style="border:0;" allowfullscreen="" 
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </main>
+    <footer class="d-flex justify-content-around mt-5">
+        <div class="w-25">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut odio, ducimus iure non sapiente at reiciendis fugit quisquam exercitationem, fuga beatae autem nihil quidem corporis labore. Distinctio velit maiores voluptatum.</p>
+        </div>
+
+        <div class="w-25">
+            <h3>Site Map</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="w-25">
+            <h3>Contact Us</h3>
+            <h6>info@progress.ps</h6>
+            <h6>+972 59-786-9686</h6>
+            <h6>FB.com/progresspalestine</h6>
+            <h6>Ramallah / Palestine</h6>
+        </div>
+            
+        <div class="w-25">
+            <img id="logo_img_footer" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_dark_background">
+        </div>
+        
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

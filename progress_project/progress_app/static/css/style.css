@@ -1,0 +1,38 @@
+
+.login-main {
+    width: 900px;
+}
+.form-height {
+    height: 400px;
+}
+.main-aboutus {
+    width: 700px;
+}
+.h4-color {
+    color: rgb(65, 66, 66);
+}
+.main-contactus {
+    width: 750px;
+}
+.image-icone {
+    width:28px;
+    height:28px;
+}
+.google-map {
+    padding-bottom: 50%;
+    position: relative;
+}
+
+.google-map iframe {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+.main-create {
+    width: 750px;
+}
+.form-font {
+    font-family:'Times New Roman';
+}

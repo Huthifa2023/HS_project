@@ -1,0 +1,4 @@
+progress_project\progress_project\__pycache__
+progress_project\progress_app\__pycache__
+progress_project\progress_app\migrations
+progress_project\db.sqlite
