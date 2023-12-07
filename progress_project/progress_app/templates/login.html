@@ -32,7 +32,11 @@
             </div>
 
             <div>
+                {% if not 'id' in request.session %}
                 <a class="btn header_nav_btn border" href="/login"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Login</a>
+                {% else %}
+                <a class="btn header_nav_btn border" href="/logout"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Logout</a>
+                {% endif %}                
                 <a class="ml-3" href=""><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
             </div>
 
@@ -52,44 +56,53 @@
             </div>       
     </header>
     <main class="d-flex mx-auto mt-5 justify-content-around login-main">
-        <form class="shadow-lg border border-dark p-5 form-height" action="/login" method="post">
+        <form class="shadow-lg border border-dark p-5 form-height" action="/login_request" method="post">
             {% csrf_token %}
             <h2 class="text-success">Login</h2>
             <div class="d-flex flex-column justify-content-between mb-4 mt-4 form-font">
                 <label>Email</label>
-                <input class="form-control border border-dark" type="text" name="email">
+                <input class="form-control border border-dark" type="email" name="email" required>
             </div>
             <div class="form-font">
                 <label>Password</label>
-                <input class="form-control border border-dark" type="password" name="password">
+                <input class="form-control border border-dark" type="password" name="password" required>
             </div>
             <div class="d-flex justify-content-end mt-4">
                 <input class="btn btn-warning text-white" type="submit" name="login" value="Log In">
             </div>
             
         </form>
+
+        {% if messages %}	     
+                <ul class="messages">    
+                    {% for message in messages %}    
+                        <li {% if message.tags == 'error' %} style="color: red; font-style: italic;" {% endif %} {% if message.tags == 'success' %} style="color: green; font-style: italic;" {% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
         <form class="mb-5 shadow-lg border border-dark p-5" action="/register" method="post">
             {% csrf_token %}
             <h2 class="text-success">Register</h2>
             <div class="d-flex flex-column justify-content-between mb-4 mt-4 form-font">
                 <label>First Name</label>
-                <input class="form-control border border-dark" type="text" name="first_name">
+                <input class="form-control border border-dark" type="text" name="first_name" required>
             </div>
             <div class="d-flex flex-column justify-content-between mb-4 form-font">
                 <label>Last Name</label>
-                <input class="form-control border border-dark" type="text" name="last_name">
+                <input class="form-control border border-dark" type="text" name="last_name" required>
             </div>
             <div class="d-flex flex-column justify-content-between mb-4 form-font">
                 <label>Email</label>
-                <input class="form-control border border-dark" type="text" name="email">
+                <input class="form-control border border-dark" type="email" name="email" required>
             </div>
             <div class="d-flex flex-column justify-content-between mb-4 form-font">
                 <label>Password</label>
-                <input class="form-control border border-dark" type="text" name="password">
+                <input class="form-control border border-dark" type="password" name="password" required>
             </div>
             <div class="form-font">
                 <label>Confirm pass</label>
-                <input class="form-control border border-dark" type="text" name="confirm_password">
+                <input class="form-control border border-dark" type="password" name="password2" required>
             </div>
             <div class="d-flex justify-content-end mt-4">
                 <input class="btn btn-info" type="submit" name="register" value="Register">

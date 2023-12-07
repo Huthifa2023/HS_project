@@ -32,8 +32,13 @@
         </div>
 
         <div>
+            {% if not 'id' in request.session %}
             <a class="btn header_nav_btn border" href="/login"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Login</a>
+            {% else %}
+            <a class="btn header_nav_btn border" href="/logout"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Logout</a>
+            {% endif %}
             <a class="ml-3" href=""><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
+            
         </div>
 
         <div>
