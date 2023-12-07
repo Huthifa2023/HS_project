@@ -17,7 +17,12 @@ urlpatterns = [
 
     path('register', views.register),
     path('login_request', views.login_request),
+
+
+
     path('logout', views.logout),
+    path('checkout', views.checkout),
+
 
 
     path('order_product/<int:prod_id>', views.order_product),

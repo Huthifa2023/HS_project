@@ -69,4 +69,4 @@ class Service(models.Model):
     image = models.TextField()
     # client = models.OneToOneField(Client, related_name="client_service", on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)     
+    updated_at = models.DateTimeField(auto_now=True)    

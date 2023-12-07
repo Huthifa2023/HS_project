@@ -6,6 +6,9 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Contact Us</title>
 </head>
 <body>
@@ -37,7 +40,37 @@
             {% else %}
             <a class="btn header_nav_btn border" href="/logout"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Logout</a>
             {% endif %}            
-            <a class="ml-3" href=""><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
+            <a class="ml-3" data-toggle="modal" data-target="#lab-slide-bottom-popup" href="#"><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
+        </div>
+
+<!-- cart Body -->
+<div class="modal fade" id="lab-slide-bottom-popup" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal-body">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h1>Your Cart</h1>
+
+        <ol>
+            {% for order in all_user_orders %}
+                {% for product in order.product.all %}
+                    <li>{{ product.name }}</li>
+                {%  endfor %}
+            {%  endfor %}
+        </ol>
+
+
+        <div class="text-center">
+            <a href="/checkout" class="btn-primary btn-plain btn btn-lg popup-button">Checkout!</a>
+        </div>
+    </div>
+    <!-- /.modal-body -->
+</div>
+<!-- cart Body -->
+
+        <div>
+            {% if current_user %}
+            <h4>Wellcome</h4>
+            <h5>{{current_user.first_name}} {{current_user.last_name}}</h5>
+            {% endif %}
         </div>
 
         <div>

@@ -3,33 +3,84 @@ from .models import *
 from django.contrib import messages
 import bcrypt
 
+
 def main(request):
-    context = {
-        'all_services' : Service.objects.all(),
-    }
+    if 'id' in request.session:
+        current_user = Client.objects.get(id = request.session['id'])
+        context = {
+            'all_services' : Service.objects.all(),
+            'all_user_orders' : current_user.user_orders.all(),
+            'current_user' : current_user,
+        }
+        return render(request, 'main.html', context)
+    else:
+        context = {
+            'all_services' : Service.objects.all(),
+        }
     return render(request, 'main.html', context)
 
+
+
+
 def login(request):
-    current_user = Client.objects.get(id = request.session['id'])
-    context = {
-        'all_orders' : current_user.user_orders.all(),
-    }
-    return render(request, 'login.html', context)
+    if 'id' in request.session:
+        current_user = Client.objects.get(id = request.session['id'])
+        context = {
+        'all_user_orders' : current_user.user_orders.all(),
+        'current_user' : current_user,  
+        }
+        return render(request, 'login.html', context)
+    else:
+        return render(request, 'login.html')
+
+
+
 
 def aboutus(request):
-    return render(request, "aboutus.html")
+    if 'id' in request.session:
+        current_user = Client.objects.get(id = request.session['id'])
+        context = {
+            'all_user_orders' : current_user.user_orders.all(),
+            'current_user' : current_user,
+        }
+        return render(request, "aboutus.html", context)
+    else:
+        return render(request, "aboutus.html")
+
+
+
+
 
 def contactus(request):
-    return render(request, "contactus.html")        
+    if 'id' in request.session:
+        current_user = Client.objects.get(id = request.session['id'])
+        context = {
+            'all_user_orders' : current_user.user_orders.all(),
+            'current_user' : current_user
+        }
+        return render(request, "contactus.html", context)
+    else:
+        return render(request, "contactus.html")      
+
+
 
 
 
 def view(request, prod_id):
-    context = {
-        "product_to_view" : Product.objects.get(id = prod_id),
-    }
+    if 'id' in request.session:
+        current_user = Client.objects.get(id = request.session['id'])
+        context = {
+            "product_to_view" : Product.objects.get(id = prod_id),
+            'all_user_orders' : current_user.user_orders.all(),
+            'current_user' : current_user,
+        }
+        return render(request, 'view.html', context)
+    else:
+        context = {
+            "product_to_view" : Product.objects.get(id = prod_id),
+        }
+        return render(request, "view.html", context)      
 
-    return render(request, 'view.html', context)
 
 
 
@@ -37,10 +88,21 @@ def createEdit(request):
     return render(request, 'create_edit.html')
 
 def products(request):
-    context = {
-        'all_products' : Product.objects.all(),
-    }
+    if 'id' in request.session:
+        current_user = Client.objects.get(id = request.session['id'])
+        context = {
+            'all_products' : Product.objects.all(),
+            'all_user_orders' : current_user.user_orders.all(),
+            'current_user' : current_user,
+        }
+        return render(request, 'products.html', context)    
+    else:
+        context = {
+            'all_products' : Product.objects.all(),
+        }
     return render(request, 'products.html', context)
+
+
 
 
 def order_product(request, prod_id):
@@ -52,7 +114,6 @@ def order_product(request, prod_id):
     )
     new_order.save()
     new_order.product.add(prod)
-    request.session['orders_session'].append(new_order)
     return redirect('/products')
 
 
@@ -80,11 +141,7 @@ def login_request(request):
         client = client[0]
         if bcrypt.checkpw(request.POST['password'].encode(), client.password.encode()):
             request.session['id'] = client.id
-            if 'orders_session' in request.session:
-                return redirect('/')
-            else:
-                request.session['orders_session'] = []
-                return redirect('/')
+            return redirect('/')
         else:
             messages.error(request, 'Wrong Email or Passowrd')
             return redirect('/login')
@@ -92,6 +149,16 @@ def login_request(request):
         messages.error(request, 'Wrong Email or Passowrd')
         return redirect('/login')
     
+
+
 def logout(request):
-    request.session.flush()
+    del request.session['id']
     return redirect('/login')
+
+def checkout(request):
+    if 'id' in request.session:
+        current_user = Client.objects.get(id = request.session['id'])
+        current_user.user_orders.all().delete()
+        return redirect('/')
+    else:
+        return redirect('/login')
