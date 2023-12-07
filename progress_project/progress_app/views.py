@@ -15,11 +15,21 @@ def aboutus(request):
 def contactus(request):
     return render(request, "contactus.html")        
 
-def view(request):
-    return render(request, 'view.html')
+def view(request, prod_id):
+    context = {
+        "product_to_view" : Product.objects.get(id = prod_id),
+    }
+
+    return render(request, 'view.html', context)
 
 def createEdit(request):
     return render(request, 'create_edit.html')
+
+def products(request):
+    context = {
+        'all_products' : Product.objects.all(),
+    }
+    return render(request, 'products.html', context)
 
 def register(request):
     errors = Client.objects.validator(request.POST)

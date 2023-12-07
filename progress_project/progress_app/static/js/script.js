@@ -17,3 +17,7 @@ if (menu.classList.contains("showMenu")) {
 }
 
 hamburger.addEventListener("click", toggleMenu);
+
+
+
+$('.carousel').carousel()

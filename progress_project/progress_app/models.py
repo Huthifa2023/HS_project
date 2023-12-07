@@ -65,7 +65,5 @@ class Service(models.Model):
     name = models.CharField(max_length=45) 
     description = models.TextField()
     image = models.TextField()
-    client = models.OneToOneField(Client, related_name="client_service", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)     
-      

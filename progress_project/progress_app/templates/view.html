@@ -15,7 +15,7 @@
         <div>
             <ul class="d-flex header_nav mt-3">
                 <li><a class="btn header_nav_btn border-dark ml-1" href="/">Home</a></li>
-                <li><a class="btn header_nav_btn border-dark ml-1" href="#">Products</a></li>
+                <li><a class="btn header_nav_btn border-dark ml-1" href="/products">Products</a></li>
                 <li><a class="btn header_nav_btn border-dark ml-1" href="/aboutus">About Us</a></li>
                 <li><a class="btn header_nav_btn border-dark ml-1" href="/contactus">Contact Us</a></li>
             </ul>
@@ -44,7 +44,7 @@
             <ul class="menu">
                 <li><a class="menuItem" href="#">My Cart</a></li>
                 <li><a class="menuItem" href="/">Home</a></li>
-                <li><a class="menuItem" href="#">Products</a></li>
+                <li><a class="menuItem" href="/products">Products</a></li>
                 <li><a class="menuItem" href="/aboutus">About us</a></li>
                 <li><a class="menuItem" href="/contactus">Contact Us</a></li>
             </ul>
@@ -61,24 +61,24 @@
 
         <section class="d-flex justify-content-around align-items-center">
             <div>
-                <h1>Hikvision_Cam1</h1>
-                <h3>iDS-2CD7046G0/E-IHSY(11-40mm)</h3>
+                <h1>{{product_to_view.name}}</h1>
+                <h3>{{product_to_view.model}}</h3>
                 <a class="btn btn-lg btn-secondary" href="#">Order</a>
             </div>
             <div>
-                <img id="product_image_view" src="{% static 'img\cam_image1.jpg' %}" alt="cam1">
+                <img id="product_image_view" src="{{product_to_view.image}}" alt="cam1">
             </div>
         </section>
 
         <h1>Description</h1>
         <article class="d-flex">
             <div class="w-50">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias autem expedita et est? Sint, itaque. Dicta, possimus illum cumque autem voluptate hic omnis nihil pariatur dolore. Est numquam quisquam sapiente.</p>
+                <p>{{ product_to_view.description }}</p>
             </div>
             <div class="w-25">
                 <ul>
                     <li><a href="#">Manual</a></li>
-                    <li><a href="#">Datasheet</a></li>
+                    <li><a href="{{product_to_view.datasheet}}">Datasheet</a></li>
                     <li><a href="#">Cataloge</a></li>
                 </ul>
             </div>

@@ -6,7 +6,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>About Us</title>
+    <title>Products</title>
 </head>
 <body>
     <header  class="modal-header align-items-center">
@@ -57,32 +57,23 @@
 </header>
 
 
-    <main class="main-aboutus mx-auto">
-        <h1 class="text-success text-center mb-5 mt-4">About Us</h1>
-        <div>
-            <h4 class="h4-color"><span class="text-primary">-</span> WHO WE ARE?</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                Explicabo asperiores possimus perspiciatis cumque minima suscipit dignissimos quidem, 
-                itaque animi non consequuntur magnam, veritatis distinctio amet eaque nisi ratione hic 
-                fugiat sint excepturi? Quasi dignissimos a vero. Dolore praesentium consequatur quam maxime 
-                dignissimos quo blanditiis harum ullam. Distinctio magnam dolores asperiores.</p>
-        </div>
-        <div>
-            <h4 class="h4-color"><span class="text-primary">-</span> OUR VISION:</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                Explicabo asperiores possimus perspiciatis cumque minima suscipit dignissimos quidem, 
-                itaque animi non consequuntur magnam, veritatis distinctio amet eaque nisi ratione hic 
-                fugiat sint excepturi? Quasi dignissimos a vero. Dolore praesentium consequatur quam maxime 
-                dignissimos quo blanditiis harum ullam. Distinctio magnam dolores asperiores.</p>
-        </div>
-        <div>
-            <h4 class="h4-color"><span class="text-primary">-</span> OUR VALUES:</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                Explicabo asperiores possimus perspiciatis cumque minima suscipit dignissimos quidem, 
-                itaque animi non consequuntur magnam, veritatis distinctio amet eaque nisi ratione hic 
-                fugiat sint excepturi? Quasi dignissimos a vero. Dolore praesentium consequatur quam maxime 
-                dignissimos quo blanditiis harum ullam. Distinctio magnam dolores asperiores.</p>
-        </div>
+    <main class="w-75 mx-auto">
+        <h1>Products</h1>
+
+        <section class="container">
+            <div class="row">
+                {% for prod in all_products %}
+                <div class="col text-center">
+                    <div>
+                        <img src="{{ prod.image }}" alt="product_1" style="width: 400px;">
+                    </div>
+                    <span>{{ prod.name }}</span><a class="btn btn-secondary" href="/view/{{prod.id}}">View</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+
     </main>
 
 
