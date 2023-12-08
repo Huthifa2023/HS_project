@@ -106,15 +106,18 @@ def products(request):
 
 
 def order_product(request, prod_id):
-    current_user = Client.objects.get(id = request.session['id'])
-    prod = Product.objects.get(id = prod_id)
+    if 'id' in request.session:
+        current_user = Client.objects.get(id = request.session['id'])
+        prod = Product.objects.get(id = prod_id)
 
-    new_order = Order(
-        client = current_user,
-    )
-    new_order.save()
-    new_order.product.add(prod)
-    return redirect('/products')
+        new_order = Order(
+            client = current_user,
+        )
+        new_order.save()
+        new_order.product.add(prod)
+        return redirect('/products')
+    else:
+        return redirect("/login")
 
 
 
