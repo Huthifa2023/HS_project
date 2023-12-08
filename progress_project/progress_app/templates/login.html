@@ -90,61 +90,53 @@
                 </button>
             </div>       
     </header>
-    <main class="d-flex mx-auto mt-5 justify-content-around login-main" style="background: url(https://images.pexels.com/photos/7078502/pexels-photo-7078502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-size: cover;">
-        <form class="shadow-lg border border-dark p-5 form-height" action="/login_request" method="post">
-            {% csrf_token %}
-            <h2 class="text-success">Login</h2>
-            <div class="d-flex flex-column justify-content-between mb-4 mt-4 form-font">
-                <label>Email</label>
-                <input class="form-control border border-dark" type="email" name="email" required>
+    <!----------------------------------------------------------------------------------------------->
+    <div class="section" id="section">
+        <div class="form-section sign-up-section">
+            <form class="form-login" action="/register" method="post">
+                {% csrf_token %}
+                <h1>Register</h1>
+                <input class="input-text" type="text" name="first_name" placeholder="First Name" required>
+                <input class="input-text" type="text" name="last_name" placeholder="Last Name" required>
+                <input class="input-text" type="email" name="email" placeholder="Email" required>
+                <input class="input-text" type="password" name="password" placeholder="Password" required>
+                <input class="input-text" type="password" name="password2" placeholder="Confirm Password" required>
+                <button class="btn-login mt-4" type="submit" name="register">Register</button>
+            </form>
+        </div>
+        <div class="form-section sign-in-section">
+            <form class="form-login" action="/login_request" method="post">
+                {% csrf_token %}
+                <h1>Log In</h1>
+                <input class="input-text" type="email" name="email" placeholder="Email" required>
+                <input class="input-text" type="password" name="password" placeholder="Password" required>
+                <button class="btn-login mt-4" type="submit" name="login">Log In</button>
+            </form>
+        </div>
+        <div class="overlay-section">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 class="h1-text">Welcome Back!</h1>
+                    <p class="p-text">To keep connected with us please login with your personal info</p>
+                    <button class="ghost btn-login" id="signIn">Log In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 class="h1-text">Hello, Friend!</h1>
+                    <p class="p-text">Enter your personal details and start journey with us</p>
+                    <button class="ghost btn-login" id="signUp">Register</button>
+                </div>
             </div>
-            <div class="form-font">
-                <label>Password</label>
-                <input class="form-control border border-dark" type="password" name="password" required>
-            </div>
-            <div class="d-flex justify-content-end mt-4">
-                <input class="btn btn-warning text-white" type="submit" name="login" value="Log In">
-            </div>
-            
-        </form>
+        </div>
+    </div>
 
-        {% if messages %}	     
-                <ul class="messages">    
-                    {% for message in messages %}    
-                        <li {% if message.tags == 'error' %} style="color: red; font-style: italic;" {% endif %} {% if message.tags == 'success' %} style="color: green; font-style: italic;" {% endif %}>{{ message }}</li>    
-                    {% endfor %}
-                </ul>
-                {% endif %}
-
-        <form class="mb-5 shadow-lg border border-dark p-5" action="/register" method="post">
-            {% csrf_token %}
-            <h2 class="text-success">Register</h2>
-            <div class="d-flex flex-column justify-content-between mb-4 mt-4 form-font">
-                <label>First Name</label>
-                <input class="form-control border border-dark" type="text" name="first_name" required>
-            </div>
-            <div class="d-flex flex-column justify-content-between mb-4 form-font">
-                <label>Last Name</label>
-                <input class="form-control border border-dark" type="text" name="last_name" required>
-            </div>
-            <div class="d-flex flex-column justify-content-between mb-4 form-font">
-                <label>Email</label>
-                <input class="form-control border border-dark" type="email" name="email" required>
-            </div>
-            <div class="d-flex flex-column justify-content-between mb-4 form-font">
-                <label>Password</label>
-                <input class="form-control border border-dark" type="password" name="password" required>
-            </div>
-            <div class="form-font">
-                <label>Confirm pass</label>
-                <input class="form-control border border-dark" type="password" name="password2" required>
-            </div>
-            <div class="d-flex justify-content-end mt-4">
-                <input class="btn btn-info" type="submit" name="register" value="Register">
-            </div>
-            
-        </form>
-    </main>
+    {% if messages %}	     
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags == 'error' %} style="color: red; font-style: italic;" {% endif %} {% if message.tags == 'success' %} style="color: green; font-style: italic;" {% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <!------------------------------------------------------------------------------------------------->
     <footer class="d-flex justify-content-around">
         <div class="w-25">
             <h3>About Us</h3>

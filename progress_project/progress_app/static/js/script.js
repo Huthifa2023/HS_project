@@ -36,3 +36,20 @@ jQuery(document).ready(function($) {
         $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup');
     });
 });
+
+
+/// login
+
+
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('section');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+
