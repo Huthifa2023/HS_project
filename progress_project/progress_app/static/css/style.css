@@ -1,4 +1,3 @@
-
 .login-main {
     width: 900px;
 }
@@ -292,3 +291,10 @@ button.ghost {
 
 /**********************************************************/
 /*************contactus***********************************/
+
+
+/* main Services section */
+
+#service_image{
+	border-radius: 15% 15%;
+}
