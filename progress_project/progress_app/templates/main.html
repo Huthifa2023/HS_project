@@ -38,19 +38,17 @@
             {% if not 'id' in request.session %}
             <a class="btn header_nav_btn border" href="/login"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Login</a>
             {% else %}
-            <a class="btn header_nav_btn border" href="/logout"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Logout</a>
+            <a class="btn header_nav_btn border-dark" href="/logout"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Logout</a>
             {% endif %}
-            <a class="ml-3" data-toggle="modal" data-target="#lab-slide-bottom-popup" href="#"><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
+            <a class="ml-2 p-1 header_nav_btn" data-toggle="modal" data-target="#lab-slide-bottom-popup" href="#"><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
             
         </div>
-
 
 <!-- cart Body -->
 <div class="modal fade" id="lab-slide-bottom-popup" data-keyboard="false" data-backdrop="false">
     <div class="lab-modal-body">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h1>Your Cart</h1>
-
         <ol>
             {% for order in all_user_orders %}
                 {% for product in order.product.all %}
@@ -58,7 +56,6 @@
                 {%  endfor %}
             {%  endfor %}
         </ol>
-
 
         <div class="text-center">
             <a href="/checkout" class="btn-primary btn-plain btn btn-lg popup-button">Checkout!</a>
@@ -130,15 +127,15 @@
           </div>
 
 
-          <section class="container border-top mt-4">
-            <h2>Services</h2>
+          <section class="container mt-4">
+            <h1 class="text-center">Our Services</h1>
             <div class="row">
                 {% for serv in all_services %}
-                <div class="col text-center">
+                <div class="col text-center border p-3">
                     <div>
-                        <img src="{{serv.image}}" alt="product_1" style="width: 400px;">
+                        <img id="service_image" src="{{serv.image}}" alt="product_1" style="width: 400px; height: 350px;">
                     </div>
-                    <span>{{ serv.name }}</span>
+                    <h4>{{ serv.name }}</h4>
                 </div>
                 {% endfor %}
             </div>
@@ -149,45 +146,42 @@
 
 
 
-        <section class="container border-top mt-4">
-            <h2>Partners</h2>
+        <section class="container mt-4">
+            <h1 class="section-title-wrap text-center">Partners</h1>
             <div class="row">
                 <div class="col text-center">
                     <div>
-                        <img src="https://blog.twoosk.com/wp-content/uploads/2021/03/Canovate-Electronics-Logo-2.png" alt="product_1" style="width: 400px;">
+                        <img src="https://blog.twoosk.com/wp-content/uploads/2021/03/Canovate-Electronics-Logo-2.png" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
-                    <span>Canovate</span>
+                    <h4>Canovate</h4>
                 </div>
                 <div class="col text-center">
                     <div>
-                        <img src="https://sensorpartners.com/wp-content/uploads/2022/06/hikvision-logo.jpg" alt="product_1" style="width: 400px;">
+                        <img src="https://sensorpartners.com/wp-content/uploads/2022/06/hikvision-logo.jpg" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
-                    <span>hikvision</span>
+                    <h4>hikvision</h4>
                 </div>
                 <div class="col text-center">
                     <div>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNRmz5KM6FcSUElrq91R3WkTKgNSm0-pIMaA&usqp=CAU" alt="product_1" style="width: 400px;">
+                        <img src="https://www.wattan.net/data/image/full/12181077310652011576243321327102.jpg" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
-                    <span>BCI</span>
+                    <h4>BCI</h4>
                 </div>
                 <div class="col text-center">
                     <div>
-                        <img src="https://cdnjobs.net/cached_uploads/fit/650/315/2019/08/21/cmc-logo-1566410675.png" alt="product_1" style="width: 400px;">
+                        <img src="https://media.licdn.com/dms/image/C4E0BAQFPQVJY_22qLg/company-logo_200_200/0/1630655564321?e=2147483647&v=beta&t=2Tx-A2d3BiePdwq_PuOJ6f0bnEm4tStlUNZZjvvqpug" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
-                    <span>CMC</span>
+                    <h4>CMC</h4>
                 </div>
             </div>
         </section>
-
-
-
 
 
     </main>
 
 
 
-    <footer class="d-flex justify-content-around">
+    <footer class="d-flex justify-content-around p-3">
         <div class="w-25">
             <h3>About Us</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut odio, ducimus iure non sapiente at reiciendis fugit quisquam exercitationem, fuga beatae autem nihil quidem corporis labore. Distinctio velit maiores voluptatum.</p>
