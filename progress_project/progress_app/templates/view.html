@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
     <title>View</title>
 </head>
 <body>
@@ -86,9 +87,50 @@
             </button>
         </div>
     </header>
+    <!-------------------------------------------------------------------------------------------------->
+    <div id="container">	
+        <!-- Start	Product details -->
+        <div class="product-details">   
+            <!-- 	Product Name -->
+            <h1>{{product_to_view.name}}</h1>
+            <!-- The most important information about the product -->
+            <p class="mt-5">* Product Model: {{product_to_view.model}}</p>
+            <p class="information text-justify">* Descripition: {{ product_to_view.description }}.</p> 
+            <ul>
+                <li><a class="text-white" style="font-family: 'Farsan', cursive; font-size: 18px;" href="#">Manual</a></li>
+                <li><a class="text-white" style="font-family: 'Farsan', cursive; font-size: 18px;" href="{{product_to_view.datasheet}}">Datasheet</a></li>
+                <li><a class="text-white" style="font-family: 'Farsan', cursive; font-size: 18px;" href="#">Cataloge</a></li>
+            </ul>     
+            <!-- 		Control -->
+            <div class="control">  
+                <!-- Start Button buying -->
+                <button class="btn-order">
+                    <a class="btn text-white" href="/order_product/{{product_to_view.id}}">Order</a>
+                </button>
+                <!-- End Button buying -->  
+            </div>        
+        </div>   
+        <!-- 	Start product image & Information -->  
+        <div class="product-image">
+            <img src="{{product_to_view.image}}" alt="Omar Dsoky">
+            <!-- 	product Information-->
+            <div class="info">
+                <h2>The Specifications:</h2>
+                <ul>
+                    <li><strong>hight: </strong>{{ product_to_view.specification.height }}cm</li>
+                    <li><strong>width: </strong>{{ product_to_view.specification.width }}cm</li>
+                    <li><strong>Input_voltage: </strong>{{ product_to_view.specification.voltage }}v</li>
+                    <li><strong>Indoor/outdoor: </strong>{{ product_to_view.specification.indoor_outdoor }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------>
+
 
 
     <main class="w-75 mx-auto">
+
 
         <section class="d-flex justify-content-around align-items-center">
             <div>
@@ -124,7 +166,7 @@
             </div>
         </article>
 
-    </main>
+    </main-->
 
 
     <footer class="d-flex justify-content-around p-3">

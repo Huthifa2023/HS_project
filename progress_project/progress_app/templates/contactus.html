@@ -47,7 +47,7 @@
 <div class="modal fade" id="lab-slide-bottom-popup" data-keyboard="false" data-backdrop="false">
     <div class="lab-modal-body">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h1>Your Cart</h1>
+        <h1 class="text-center">Your Cart</h1>
 
         <ol>
             {% for order in all_user_orders %}
@@ -93,28 +93,51 @@
         <div class="container">
             <div class="row gx-4 justify-content-between">
                 <div class="col-md-5 order-2 order-md-1">
-                    <div class="mt-5 mt-md-0">
-                        <div class="d-flex">
-                            <img class="image-icone mt-3 ms-3" src="{% static 'img/address.jfif' %}" alt="location logo">
-                            <h4 class="display-5 fw-bold lead">Address: Ramallah / Palestine</h4>
+                    <div class="mt-5 mt-md-0 d-flex flex-column justify-content-around" style="height: 600px;">
+                        <div class="ag-courses_item shadow-lg">
+                            <a href="#" class="ag-courses-item_link">
+                            <div class="ag-courses-item_bg"></div>
+                            <div class="ag-courses-item_title d-flex px-5 mt-3">
+                                <img style="border-radius: 50%;" class="image-icone mt-3 ms-3" src="{% static 'img/location-map.png' %}" alt="location logo">
+                                <h4 class="display-5 fw-bold lead">Address: Ramallah / Palestine</h4>
+                            </div>
+                            </a>
                         </div>
-                        <div class="d-flex">
-                            <img class="image-icone mt-3 ms-3" src="{% static 'img/phone.png' %}" alt="phone logo">
-                            <h4 class="display-5 fw-bold lead">Phone: +972 59-786-9686</h4>
+                        <div class="ag-courses_item shadow-lg">
+                            <a href="#" class="ag-courses-item_link">
+                                <div class="ag-courses-item_bg"></div>
+                                <div class="ag-courses-item_title d-flex px-5 mt-3">
+                                <img style="border-radius: 50%;" class="image-icone mt-3 ms-3" src="{% static 'img/phone.png' %}" alt="phone logo">
+                                <h4 class="display-5 fw-bold lead px-2">Phone: +972 59-786-9686</h4>
+                                </div>
+                            </a>
                         </div>
-                        <div class="d-flex">
-                            <img class="image-icone mt-3 ms-3" src="{% static 'img/email.jfif' %}" alt="message logo">
-                            <h4 class="display-5 fw-bold lead">Email: info@progress.ps</h4>
+                        <div class="ag-courses_item shadow-lg">
+                            <a href="#" class="ag-courses-item_link">
+                            <div class="ag-courses-item_bg"></div>
+                            <div class="ag-courses-item_title d-flex px-5 mt-3">
+                                <img class="image-icone mt-3 ms-3" src="{% static 'img/message.jfif' %}" alt="message logo">
+                            <h4 class="display-5 fw-bold lead px-2">Email: info@progress.ps</h4>
+                            </div>
+                            </a>
                         </div>
-                        <div class="d-flex">
-                            <img class="image-icone mt-2 ms-3" src="{% static 'img/fax.jfif' %}" alt="Fax logo">
-                            <h4 class="display-5 fw-bold lead">Fax: +970229760</h4>
+                        <div class="ag-courses_item shadow-lg">
+                            <a href="#" class="ag-courses-item_link">
+                                <div class="ag-courses-item_bg"></div>
+                                <div class="ag-courses-item_title d-flex px-5 mt-3">
+                                    <img class="image-icone mt-3 ms-3" src="{% static 'img/fax-icon.jfif' %}" alt="Fax logo">
+                                    <h4 class="display-5 fw-bold lead px-2">Fax: +970229760</h4>
+                                </div>
+                            </a>
                         </div>
-                        
                     </div>
                 </div>
-                <div class="col-md-6 offset-md-1 order-1 order-md-2 google-map mt-5">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.274257380938!2d-70.56068388481569!3d41.45496659976631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e52963ac45bbcb%3A0xf05e8d125e82af10!2sDos%20Mas!5e0!3m2!1sen!2sus!4v1671220374408!5m2!1sen!2sus" 
+                <div class="col-md-6 offset-md-1 order-1 order-md-2 google-map mt-5 shadow-lg">
+                        <!--iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.274257380938!2d-70.56068388481569!3d41.45496659976631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e52963ac45bbcb%3A0xf05e8d125e82af10!2sDos%20Mas!5e0!3m2!1sen!2sus!4v1671220374408!5m2!1sen!2sus" 
+                        width="600" height="450" style="border:0;" allowfullscreen="" 
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe-->
+                        <iframe src="https://www.google.com/maps/d/embed?mid=13lJ6oTvsJ8TCz7VtIkm8n8bXYO0&ll=31.952161999999994%2C35.23315399999999&z=12" 
                         width="600" height="450" style="border:0;" allowfullscreen="" 
                         loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
