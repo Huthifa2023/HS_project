@@ -619,14 +619,15 @@ Font Styling
 .h1_card {
     font: var(--var-heading);
     color: var(--var-lightest);
-    padding: 0.2em 0 0.6em 0;
+    padding: 0.2em 0 0.1em 0;
 	text-align: center;
 }
 
 .p_card {
-    font: var(--var-para);
+	font-size: 12px;
+    /* font: var(--var-para); */
     color: var(--var-soft-blue);
-	height: 80px;
+	height: 50px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -644,14 +645,25 @@ Classes
 
 .card-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     margin: 2em auto;
     background-color: var(--var-card-dark);
     border-radius: 15px;
     margin-bottom: 1rem;
     padding: 2rem;
-	height: 500px;
+	height: 400px;
+	border-radius: 40px;
+	box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+	cursor: pointer;
+	transition: 0.4s;
 }
+
+.card-container:hover{
+	transform: scale(0.95, 0.95);
+	box-shadow: 5px 5px 30px 15px rgba(194, 194, 194, 0.25), 
+    -5px -5px 30px 15px rgba(188, 188, 188, 0.22);
+}
+
 
 div.flex-row {
     display: flex;
@@ -754,17 +766,19 @@ div.attribution {
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 body {
-	background: rgb(0,212,255);
+	/* background: rgb(0,212,255); */
  	 /* gradient background*/
- 	 background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%);
+	  background: rgb(44,55,94);
+	background: linear-gradient(0deg, rgba(44,55,94,1) 7%, rgba(71,104,156,1) 86%);
+ 	 /* background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%); */
 	 color: #ffffff;
 }
 .section-product {
   /* solid background */
-  background: rgb(0,212,255);
+  /* background: rgb(0,212,255);
   
   /* gradient background*/
-  background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%);    
+  /* background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%); */
   
   display: flex;
   align-items: center;
@@ -867,4 +881,106 @@ body {
   border-color: rgba(255, 255, 255, 0.9);
   filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
   transition: all .3s ease;    
+}
+
+
+/* nav bar below header */
+nav {
+	/* width: 100%;
+	display: flex;
+	align-items: center; */
+	/* /* transition: 0.3s ease-out; */
+	/* backdrop-filter: blur(8px) brightness(1);
+	-webkit-backdrop-filter: blur(8px) brightness(1.2); */
+	text-shadow: 0 0 5px rgba(0,0,0,0.5); 
+	/* color: white;
+	font-size: 16px; */
+	/* &.mask {
+	top: 150px;
+	mask-image: linear-gradient(black 70%, transparent);
+	-webkit-mask-image: linear-gradient(black 70%, transparent);
+	} */
+}
+
+
+.partener_container_div{
+	border-radius: 40px;
+}
+
+
+
+
+
+/* nav bar below header buttons style */
+/* Aylen */
+.button.button--aylen {
+	background: #295E72;
+	color: ghostwhite;
+	overflow: hidden;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}
+.button--aylen.button--inverted {
+	background: none;
+	color: #fff;
+}
+.button--aylen::before,
+.button--aylen::after {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	bottom: 100%;
+	left: 0;
+	z-index: -1;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+.button--aylen::before {
+	background: #65af9a;
+}
+.button--aylen::after {
+	background: #2a5a34;
+}
+.button--aylen:hover {
+	color: #fff;
+}
+.button--aylen:hover::before,
+.button--aylen:hover::after {
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0);
+}
+.button--aylen:hover::after {
+	-webkit-transition-delay: 0.175s;
+	transition-delay: 0.175s;
+}
+.button {
+	float: left;
+	min-width: 150px;
+	max-width: 250px;
+	display: block;
+	margin: 2px 8px;
+	padding: 8px;
+	border: none;
+	background: none;
+	color: inherit;
+	vertical-align: middle;
+	position: relative;
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+	-moz-osx-font-smoothing: grayscale;
+}
+.button:focus {
+	outline: none;
+}
+.button > span {
+	vertical-align: middle;
+}
+.button--text-thick {
+	font-weight: 600;
+}
+.button--round-l {
+	border-radius: 40px;
 }

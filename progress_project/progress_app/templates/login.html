@@ -12,37 +12,34 @@
     <title>login & Registration</title>
 </head>
 <body>
-    <header  class="modal-header align-items-center">
-            <img id="logo_img" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_white_background">
+    <header>
+        <div class="modal-header-progress">
+                <img class="align-self-center" id="logo_img" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_white_background">
+
+
+
+                <div class="search-container">
+                    <form class="form-inline" action="" method="post">
+                        {% csrf_token %}
+                        <div class="w-100">
+                            <input class="form-control search_header_input" type="text" placeholder="Search.." name="search">
+                            <button class="border header_nav_btn_login button--round-l" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+
+
+
+        <div>
+                    <a class="mr-2 p-1 cart_btn" data-toggle="modal" data-target="#lab-slide-bottom-popup" href="#"><img class="header_nav_btn_cart" src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
+                    {% if not 'id' in request.session %}
+                    <a class="btn header_nav_btn_login border mr-4" href="/login"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Login</a>
+                    {% else %}
+                    <a class="btn header_nav_btn border-dark mr-4" href="/logout"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Logout</a>
+                    {% endif %}
+                    
 
             <div>
-                <ul class="d-flex header_nav mt-3">
-                    <li><a class="btn header_nav_btn border-dark ml-1" href="/">Home</a></li>
-                <li><a class="btn header_nav_btn border-dark ml-1" href="/products">Products</a></li>
-                <li><a class="btn header_nav_btn border-dark ml-1" href="/aboutus">About Us</a></li>
-                <li><a class="btn header_nav_btn border-dark ml-1" href="/contactus">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <div class="search-container">
-                <form class="form-inline" action="" method="post">
-                    {% csrf_token %}
-                    <div class="">
-                        <input class="form-control" type="text" placeholder="Search.." name="search">
-                        <button class="btn" type="submit"><img class="icon_image" src="{% static 'img\search-icon.png' %}" alt="search_icon"></button>
-                    </div>
-                </form>
-            </div>
-
-            <div>
-                {% if not 'id' in request.session %}
-                <a class="btn header_nav_btn border" href="/login"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Login</a>
-                {% else %}
-                <a class="btn header_nav_btn border" href="/logout"><img class="icon_image" src="{% static 'img\login_person.png' %}" alt="persion_icon">Logout</a>
-                {% endif %}
-                <a class="ml-3 p-1 header_nav_btn" data-toggle="modal" data-target="#lab-slide-bottom-popup" href="#"><img src="{% static 'img\cart_icon.png' %}" alt="cart_icon"></a>
-            </div>
-
             <!-- cart Body -->
             <div class="modal fade" id="lab-slide-bottom-popup" data-keyboard="false" data-backdrop="false">
                 <div class="lab-modal-body">
@@ -55,6 +52,7 @@
                             {%  endfor %}
                         {%  endfor %}
                     </ol>
+
                     <div class="text-center">
                         <a href="/checkout" class="btn-primary btn-plain btn btn-lg popup-button">Checkout!</a>
                     </div>
@@ -63,28 +61,43 @@
             </div>
             <!-- cart Body -->
 
+
+                <div>
+                    <ul class="menu">
+                        <li class="mb-2"><a class="menuItem" data-toggle="modal" data-target="#lab-slide-bottom-popup" href="#">My Cart</a></li>
+                        <li class="mb-2"><a class="menuItem" href="/">Home</a></li>
+                        <li class="mb-2"><a class="menuItem" href="/products">Products</a></li>
+                        <li class="mb-2"><a class="menuItem" href="/aboutus">About us</a></li>
+                        <li class="mb-2"><a class="menuItem" href="/contactus">Contact Us</a></li>
+                    </ul>
+                    <button class="hamburger header_nav_btn_burger">
+                        <img class="icon_image" src="{% static 'img\menu_black.png' %}" alt="menu_icon">
+                        <!-- <i class="menuIcon material-icons">menu</i>
+                        <i class="closeIcon material-icons">close</i> -->
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+        <nav class="d-flex justify-content-center">
             <div>
+                <ul class="d-flex header_nav mt-3">
+                    <li><a class="button button--aylen button--round-l button--text-thick text-center" href="/">Home</a></li>
+                    <li><a class="button button--aylen button--round-l button--text-thick text-center" href="/products">Products</a></li>
+                    <li><a class="button button--aylen button--round-l button--text-thick text-center" href="/aboutus">About Us</a></li>
+                    <li><a class="button button--aylen button--round-l button--text-thick text-center" href="/contactus">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="ml-5">
                 {% if current_user %}
                 <h4>Wellcome</h4>
                 <h5>{{current_user.first_name}} {{current_user.last_name}}</h5>
                 {% endif %}
             </div>
+        </nav>
 
-            <div>
-                <ul class="menu">
-                <li class="mb-2"><a class="menuItem" data-toggle="modal" data-target="#lab-slide-bottom-popup" href="#">My Cart</a></li>
-                <li class="mb-2"><a class="menuItem" href="/">Home</a></li>
-                <li class="mb-2"><a class="menuItem" href="/products">Products</a></li>
-                <li class="mb-2"><a class="menuItem" href="/aboutus">About us</a></li>
-                <li class="mb-2"><a class="menuItem" href="/contactus">Contact Us</a></li>
-                </ul>
-                <button class="hamburger header_nav_btn">
-                    <img class="icon_image" src="{% static 'img\menu_black.png' %}" alt="menu_icon">
-                    <!-- <i class="menuIcon material-icons">menu</i>
-                    <i class="closeIcon material-icons">close</i> -->
-                </button>
-            </div>       
-    </header>
+</header>
     <!----------------------------------------------------------------------------------------------->
     <div class="section" id="section">
         <div class="form-section sign-up-section">
