@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
 import bcrypt
-
+import json
 
 def main(request):
     if 'id' in request.session:
@@ -157,6 +157,7 @@ def login_request(request):
 def logout(request):
     del request.session['id']
     return redirect('/login')
+
 
 def checkout(request):
     if 'id' in request.session:

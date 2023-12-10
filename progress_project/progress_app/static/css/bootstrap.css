@@ -5858,8 +5858,9 @@ a.close.disabled {
   border-bottom: 1px solid #dee2e6;
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
-  background: rgb(255,255,255);
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(68,145,57,1) 100%);
+  /* background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(68,145,57,1) 100%); */
+  background-color: #14253d;
 }
 
 .modal-header .close {
@@ -10105,6 +10106,12 @@ body{
 }
 .header_nav_btn:hover{
   background-color: ghostwhite;
+}
+
+.header_nav_btn{
+  font-weight: bold;
+  color: ghostwhite;
+  background-color: #7797b1;
 }
 
 

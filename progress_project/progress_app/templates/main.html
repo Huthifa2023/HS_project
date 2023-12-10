@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>Main</title>
 </head>
 <body>
     <header  class="modal-header align-items-center">
-        <img id="logo_img" src="{% static 'img\logo_transparent_white_background.png' %}" alt="logo_transparent_white_background">
+        <img id="logo_img" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_white_background">
 
         <div>
             <ul class="d-flex header_nav mt-3">
@@ -89,6 +90,8 @@
     </header>
 
 
+
+
     <main>
         <div class="container w-50">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -127,7 +130,7 @@
           </div>
 
 
-          <section class="container mt-4">
+          <!-- <section class="container mt-4">
             <h1 class="text-center">Our Services</h1>
             <div class="row">
                 {% for serv in all_services %}
@@ -142,7 +145,21 @@
             {% if current_user.email == 'admin@admin.admin' %}
             <a class="btn btn-secondary" href="/admin">Edit Services</a>
             {% endif %}
+        </section> -->
+
+        <section>
+            <div class="card-container">
+            <a href="/" class="hero-image-container">
+                <img id="img_card" class="hero-image" src="https://i.postimg.cc/NfR2yhNs/image-equilibrium.jpg" alt="Spinning glass cube"/>
+            </a>
+        <main class="main-content">
+            <h1 class="h1_card"><a href="#">Equilibrium #3429</a></h1>
+            <p class="p_card">Our Equilibrium collection promotes balance and calm.</p>
+        </main>
+        </div>
         </section>
+
+
 
 
 
@@ -153,25 +170,21 @@
                     <div>
                         <img src="https://blog.twoosk.com/wp-content/uploads/2021/03/Canovate-Electronics-Logo-2.png" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
-                    <h4>Canovate</h4>
                 </div>
                 <div class="col text-center">
                     <div>
                         <img src="https://sensorpartners.com/wp-content/uploads/2022/06/hikvision-logo.jpg" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
-                    <h4>hikvision</h4>
                 </div>
                 <div class="col text-center">
                     <div>
                         <img src="https://www.wattan.net/data/image/full/12181077310652011576243321327102.jpg" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
-                    <h4>BCI</h4>
                 </div>
                 <div class="col text-center">
                     <div>
                         <img src="https://media.licdn.com/dms/image/C4E0BAQFPQVJY_22qLg/company-logo_200_200/0/1630655564321?e=2147483647&v=beta&t=2Tx-A2d3BiePdwq_PuOJ6f0bnEm4tStlUNZZjvvqpug" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
-                    <h4>CMC</h4>
                 </div>
             </div>
         </section>
