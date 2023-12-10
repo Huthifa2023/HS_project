@@ -13,7 +13,7 @@
 </head>
 <body>
     <header  class="modal-header align-items-center">
-        <img id="logo_img" src="{% static 'img\logo_transparent_white_background.png' %}" alt="logo_transparent_white_background">
+        <img id="logo_img" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_white_background">
 
         <div>
             <ul class="d-flex header_nav mt-3">
@@ -48,7 +48,7 @@
 <div class="modal fade" id="lab-slide-bottom-popup" data-keyboard="false" data-backdrop="false">
     <div class="lab-modal-body">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h1>Your Cart</h1>
+        <h1 class="text-center">Your Cart</h1>
 
         <ol>
             {% for order in all_user_orders %}
@@ -76,11 +76,11 @@
 
         <div>
             <ul class="menu">
-                <li><a class="menuItem" href="#">My Cart</a></li>
-                <li><a class="menuItem" href="/">Home</a></li>
-                <li><a class="menuItem" href="/products">Products</a></li>
-                <li><a class="menuItem" href="/aboutus">About us</a></li>
-                <li><a class="menuItem" href="/contactus">Contact Us</a></li>
+                <li class="mb-2"><a class="menuItem" data-toggle="modal" data-target="#lab-slide-bottom-popup" href="#">My Cart</a></li>
+                <li class="mb-2"><a class="menuItem" href="/">Home</a></li>
+                <li class="mb-2"><a class="menuItem" href="/products">Products</a></li>
+                <li class="mb-2"><a class="menuItem" href="/aboutus">About us</a></li>
+                <li class="mb-2"><a class="menuItem" href="/contactus">Contact Us</a></li>
             </ul>
             <button class="hamburger header_nav_btn">
                 <img class="icon_image" src="{% static 'img\menu_black.png' %}" alt="menu_icon">
@@ -89,9 +89,28 @@
             </button>
         </div>       
 </header>
+<!------------------------------------------------------------------------------------------------------->
+    <section class="section-product">
+        {% for prod in all_products %}
+            <div class="container-product col-2">
+                <div class="wrapper">
+                    <div><img class="banner-image" src="{{ prod.image }}" alt="product image"></div>
+                        <h3 class="product-name">{{ prod.name }}</h3>
+                    </div>
+                    <div class="button-wrapper"> 
+                        {% if current_user.email == 'admin@admin.admin' %}
+                        <button class="btn outline"><a class="text-white" href="/admin">Edit products</a></button>
+                        {% endif %}
+                        <button class="btn fill mt-2"><a class="text-white" href="/view/{{prod.id}}">View</a></button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+<!-------------------------------------------------------------------------------------------------------->
 
 
-    <main class="w-75 mx-auto">
+    <!--main class="w-75 mx-auto">
         <div class="d-flex">
             <h1>Products</h1>
             {% if current_user.email == 'admin@admin.admin' %}
@@ -112,27 +131,27 @@
                 {% endfor %}
             </div>
         </section>
-    </main>
+    </main-->
 
 
 
     <footer class="d-flex justify-content-around p-3">
-        <div class="w-25">
+        <div class="w-25" style="margin-left: 50px;">
             <h3>About Us</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut odio, ducimus iure non sapiente at reiciendis fugit quisquam exercitationem, fuga beatae autem nihil quidem corporis labore. Distinctio velit maiores voluptatum.</p>
+            <p class="text-justify">Progress Security & Communications is a professional supplier of Extra Low Voltage, Security and Safety Systems.</p>
         </div>
 
-        <div class="w-25">
+        <div class="w-25" style="margin-left: 120px;">
             <h3>Site Map</h3>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a class="text-white" href="/">Home</a></li>
+                <li><a class="text-white" href="/products">Products</a></li>
+                <li><a class="text-white" href="/aboutus">About Us</a></li>
+                <li><a class="text-white" href="/contactus">Contact Us</a></li>
             </ul>
         </div>
 
-        <div class="w-25">
+        <div class="w-25" style="margin-left: 80px;">
             <h3>Contact Us</h3>
             <h6>info@progress.ps</h6>
             <h6>+972 59-786-9686</h6>
@@ -141,7 +160,7 @@
         </div>
             
         <div class="w-25">
-            <img id="logo_img_footer" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_dark_background">
+            <img id="logo_img_footer" class="mt-4" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_dark_background">
         </div>
         
     </footer>

@@ -49,7 +49,7 @@
 <div class="modal fade" id="lab-slide-bottom-popup" data-keyboard="false" data-backdrop="false">
     <div class="lab-modal-body">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h1>Your Cart</h1>
+        <h1 class="text-center">Your Cart</h1>
         <ol>
             {% for order in all_user_orders %}
                 {% for product in order.product.all %}
@@ -75,11 +75,11 @@
 
         <div>
             <ul class="menu">
-                <li><a class="menuItem" href="#">My Cart</a></li>
-                <li><a class="menuItem" href="/">Home</a></li>
-                <li><a class="menuItem" href="/products">Products</a></li>
-                <li><a class="menuItem" href="/aboutus">About us</a></li>
-                <li><a class="menuItem" href="/contactus">Contact Us</a></li>
+                <li class="mb-2"><a class="menuItem" data-toggle="modal" data-target="#lab-slide-bottom-popup" href="#">My Cart</a></li>
+                <li class="mb-2"><a class="menuItem" href="/">Home</a></li>
+                <li class="mb-2"><a class="menuItem" href="/products">Products</a></li>
+                <li class="mb-2"><a class="menuItem" href="/aboutus">About us</a></li>
+                <li class="mb-2"><a class="menuItem" href="/contactus">Contact Us</a></li>
             </ul>
             <button class="hamburger header_nav_btn">
                 <img class="icon_image" src="{% static 'img\menu_black.png' %}" alt="menu_icon">
@@ -90,10 +90,8 @@
     </header>
 
 
-
-
     <main>
-        <div class="container w-50">
+        <div class="container w-100 mt-5" style="height: 700px;">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
@@ -103,7 +101,7 @@
               </ol>
           
               <!-- Wrapper for slides -->
-              <div class="carousel-inner">
+            <div class="carousel-inner">
                 <div class="item active">
                   <img src="{% static 'img\slider_2.jpg' %}" alt="Los Angeles" style="width:100%; height: 500px ;">
                 </div>
@@ -147,41 +145,47 @@
             {% endif %}
         </section> -->
 
-        <section>
-            <div class="card-container">
-            <a href="/" class="hero-image-container">
-                <img id="img_card" class="hero-image" src="https://i.postimg.cc/NfR2yhNs/image-equilibrium.jpg" alt="Spinning glass cube"/>
-            </a>
-        <main class="main-content">
-            <h1 class="h1_card"><a href="#">Equilibrium #3429</a></h1>
-            <p class="p_card">Our Equilibrium collection promotes balance and calm.</p>
-        </main>
-        </div>
-        </section>
-
-
-
-
-
-        <section class="container mt-4">
-            <h1 class="section-title-wrap text-center">Partners</h1>
+        <section class="container" style="margin-top: -120px;">
+            <h1 class="text-center font-weight-bold text-white">OUR SERVICES</h1>
             <div class="row">
-                <div class="col text-center">
+                {% for serv in all_services %}
+                <div class="card-container col" style="margin-left: 20px;">
+                    <a href="/" class="hero-image-container">
+                        <img id="img_card" class="hero-image" src="{{ serv.image }}" alt="Service image"/>
+                    </a>
+                    <main class="main-content">
+                        <h1 class="h1_card">{{ serv.name }}</h1>
+                        <p class="p_card text-justify">{{ serv.description }}</p>
+                    </main>
+                </div>
+                {% endfor %}
+            </div>
+            {% if current_user.email == 'admin@admin.admin' %}
+            <div class="d-flex justify-content-center" style="height: 50px;">
+                 <a class="btn btn-secondary p-1" href="/admin">Edit Services</a>
+            </div>
+           
+            {% endif %}
+        </section>
+        <section class="container mt-5 mb-5">
+            <h1 class="section-title-wrap text-center font-weight-bold text-white">PARTNERS</h1>
+            <div class="row">
+                <div class="col-4 text-center">
                     <div>
                         <img src="https://blog.twoosk.com/wp-content/uploads/2021/03/Canovate-Electronics-Logo-2.png" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
                 </div>
-                <div class="col text-center">
+                <div class="col-4 text-center">
                     <div>
                         <img src="https://sensorpartners.com/wp-content/uploads/2022/06/hikvision-logo.jpg" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
                 </div>
-                <div class="col text-center">
-                    <div>
+                <div class="col-4 text-center">
+                    <div class="bg-white">
                         <img src="https://www.wattan.net/data/image/full/12181077310652011576243321327102.jpg" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
                 </div>
-                <div class="col text-center">
+                <div class="col text-center mt-4">
                     <div>
                         <img src="https://media.licdn.com/dms/image/C4E0BAQFPQVJY_22qLg/company-logo_200_200/0/1630655564321?e=2147483647&v=beta&t=2Tx-A2d3BiePdwq_PuOJ6f0bnEm4tStlUNZZjvvqpug" alt="product_1" style="width: 300px; height: 250px;">
                     </div>
@@ -195,22 +199,22 @@
 
 
     <footer class="d-flex justify-content-around p-3">
-        <div class="w-25">
+        <div class="w-25" style="margin-left: 50px;">
             <h3>About Us</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut odio, ducimus iure non sapiente at reiciendis fugit quisquam exercitationem, fuga beatae autem nihil quidem corporis labore. Distinctio velit maiores voluptatum.</p>
+            <p class="text-justify">Progress Security & Communications is a professional supplier of Extra Low Voltage, Security and Safety Systems.</p>
         </div>
 
-        <div class="w-25">
+        <div class="w-25" style="margin-left: 120px;">
             <h3>Site Map</h3>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a class="text-white" href="/">Home</a></li>
+                <li><a class="text-white" href="/products">Products</a></li>
+                <li><a class="text-white" href="/aboutus">About Us</a></li>
+                <li><a class="text-white" href="/contactus">Contact Us</a></li>
             </ul>
         </div>
 
-        <div class="w-25">
+        <div class="w-25" style="margin-left: 80px;">
             <h3>Contact Us</h3>
             <h6>info@progress.ps</h6>
             <h6>+972 59-786-9686</h6>
@@ -219,7 +223,7 @@
         </div>
             
         <div class="w-25">
-            <img id="logo_img_footer" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_dark_background">
+            <img id="logo_img_footer" class="mt-4" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_dark_background">
         </div>
         
     </footer>

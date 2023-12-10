@@ -10080,6 +10080,9 @@ a.text-dark:hover, a.text-dark:focus {
   list-style: none;
   padding-top: 4rem;
 }
+.menuItem{
+  color: #14253d;
+}
 
 .showMenu {
   transform: translateY(0);
