@@ -764,15 +764,6 @@ div.attribution {
 /*################################products Card##############################*/
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-
-body {
-	/* background: rgb(0,212,255); */
- 	/* gradient background*/
-	background: rgb(153,190,128);
-    background: linear-gradient(0deg, rgba(153,190,128,1) 0%, rgba(27,104,59,1) 100%);
- 	 /* background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%); */
-	color: #ffffff;
-}
 .section-product {
 	width: 75%;
 	max-width: 900px;

@@ -100,7 +100,29 @@
 </header>
 <!------------------------------------------------------------------------------------------------------->
     <main>
-        <section class="container d-flex justify-content-center">
+        <section class="container mt-1" style="margin-top: -120px;">
+            <h1 class="text-center font-weight-bold text-white">Available Products</h1>
+            <div class="row">
+                {% for prod in all_products %}
+                <div class="card-container col-md-3" style="margin-left: 20px;">
+                    <a href="/view/{{prod.id}}" class="hero-image-container">
+                        <img id="img_card" class="hero-image" src="{{ prod.image }}" alt="Service image"/>
+                    </a>
+                    <main class="main-content">
+                        <h1 class="h1_card">{{ prod.name }}</h1>
+                        <p class="p_card text-justify">{{ prod.description }}</p>
+                    </main>
+                </div>
+                {% endfor %}
+            </div>
+            {% if current_user.email == 'admin@admin.admin' %}
+                <div class="d-flex justify-content-center p-2">
+                <a class="btn btn-info p-2" href="/admin">Edit Products</a>
+                </div>
+                {% endif %}
+        </section>
+
+        <!-- <section class="container d-flex justify-content-center">
             <div class="row">
                 {% for prod in all_products %}
                 <div class="container-product col">
@@ -118,7 +140,7 @@
                 </div>    
                 {% endfor %}
             </div>    
-        </section>
+        </section> -->
     </main>
     
 <!-------------------------------------------------------------------------------------------------------->
