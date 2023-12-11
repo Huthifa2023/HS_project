@@ -155,7 +155,7 @@ def login_request(request):
 
 
 def logout(request):
-    del request.session['id']
+    request.session.flush()
     return redirect('/login')
 
 
