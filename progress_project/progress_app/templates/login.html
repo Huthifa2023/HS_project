@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>login & Registration</title>
 </head>
 <body>
@@ -132,14 +133,27 @@
             </div>
         </div>
     </div>
+   <!------------------------------------------------------------------------------------------------>
 
-    {% if messages %}	     
-    <ul class="messages">    
-        {% for message in messages %}    
-            <li {% if message.tags == 'error' %} style="color: red; font-style: italic;" {% endif %} {% if message.tags == 'success' %} style="color: green; font-style: italic;" {% endif %}>{{ message }}</li>    
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %} 
+    <!-- The danger alert message -->
+    <div class="alert danger">
+        <h3 class="text-white">{{ message }}</h3>
+        <button class="close">x</button>
+    </div>
+            {% elif message.tags == 'success' %}
+    <!-- The success alert message -->
+    <div class="alert success">
+        <h3 class="text-white">{{ message }}</h3>
+        <button class="close">x</button>
+    </div>
+            {% endif %}
         {% endfor %}
-    </ul>
     {% endif %}
+   
+    <!------------------------------------------------------------------------------------------------->
     <!------------------------------------------------------------------------------------------------->
     <footer class="d-flex justify-content-around p-3">
         <div class="w-25" style="margin-left: 50px;">
