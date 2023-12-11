@@ -92,8 +92,8 @@
             </div>
             <div class="ml-5">
                 {% if current_user %}
-                <h4>Wellcome</h4>
-                <h5>{{current_user.first_name}} {{current_user.last_name}}</h5>
+                <h4 class="fw-bold" style="color: #000201;">Welcome</h4>
+                <h5 class="fw-bold" style="color: #000201;">{{current_user.first_name}} {{current_user.last_name}}</h5>
                 {% endif %}
             </div>
         </nav>
@@ -157,8 +157,8 @@
                 {% endfor %}
             </div>
             {% if current_user.email == 'admin@admin.admin' %}
-            <div class="d-flex justify-content-center" style="height: 50px;">
-                <a class="btn btn-secondary p-1" href="/admin">Edit Services</a>
+            <div class="d-flex justify-content-center p-2">
+                <a class="btn btn-info p-2" href="/admin">Edit Services</a>
             </div>
         
             {% endif %}

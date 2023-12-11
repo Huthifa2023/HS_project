@@ -91,57 +91,37 @@
             </div>
             <div class="ml-5">
                 {% if current_user %}
-                <h4>Wellcome</h4>
-                <h5>{{current_user.first_name}} {{current_user.last_name}}</h5>
+                <h4 class="fw-bold" style="color: #000201;">Welcome</h4>
+                <h5 class="fw-bold" style="color: #000201;">{{current_user.first_name}} {{current_user.last_name}}</h5>
                 {% endif %}
             </div>
         </nav>
 
 </header>
 <!------------------------------------------------------------------------------------------------------->
-    <section class="section-product">
-        {% for prod in all_products %}
-            <div class="container-product col-2">
-                <div class="wrapper">
-                    <div><img class="banner-image" src="{{ prod.image }}" alt="product image"></div>
-                        <h3 class="product-name">{{ prod.name }}</h3>
-                    </div>
-                    <div class="button-wrapper"> 
-                        {% if current_user.email == 'admin@admin.admin' %}
-                        <button class="btn outline"><a class="text-white" href="/admin">Edit products</a></button>
-                        {% endif %}
-                        <button class="btn fill mt-2"><a class="text-white" href="/view/{{prod.id}}">View</a></button>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </section>
-<!-------------------------------------------------------------------------------------------------------->
-
-
-    <!--main class="w-75 mx-auto">
-        <div class="d-flex">
-            <h1>Products</h1>
-            {% if current_user.email == 'admin@admin.admin' %}
-            <a class="btn btn-secondary" href="/admin">Edit products</a>
-            {% endif %}
-        </div>
-
-        <section class="container">
+    <main>
+        <section class="container d-flex justify-content-center">
             <div class="row">
                 {% for prod in all_products %}
-                <div class="col text-center border">
-                    <div>
-                        <img id="prod_image" src="{{ prod.image }}" alt="product_1" style="width: 250px; height: 200px;">
+                <div class="container-product col">
+                    <div class="wrapper">
+                        <div><img class="banner-image" src="{{ prod.image }}" alt="product image"></div>
+                            <h3 class="product-name">{{ prod.name }}</h3>
+                        </div>
+                        <div class="button-wrapper"> 
+                            {% if current_user.email == 'admin@admin.admin' %}
+                            <button class="btn outline"><a class="text-white" href="/admin">Edit products</a></button>
+                            {% endif %}
+                            <button class="btn fill mt-2"><a class="text-white" href="/view/{{prod.id}}">View</a></button>
+                        </div>
                     </div>
-                    <h4>{{ prod.name }}</h4>
-                    <div><a class="btn btn-secondary" href="/view/{{prod.id}}">View</a></div>
-                </div>
+                </div>    
                 {% endfor %}
-            </div>
+            </div>    
         </section>
-    </main-->
-
+    </main>
+    
+<!-------------------------------------------------------------------------------------------------------->
 
 
     <footer class="d-flex justify-content-around p-3">
@@ -169,7 +149,7 @@
         </div>
             
         <div class="w-25">
-            <img id="logo_img_footer" class="mt-4" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_dark_background">
+            <img id="logo_img_footer" class="mt-4" src="{% static 'img\logo_transparent_white_background.png' %}" alt="logo_transparent_dark_background">
         </div>
         
     </footer>

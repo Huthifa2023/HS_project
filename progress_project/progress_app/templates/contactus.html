@@ -91,8 +91,8 @@
             </div>
             <div class="ml-5">
                 {% if current_user %}
-                <h4>Wellcome</h4>
-                <h5>{{current_user.first_name}} {{current_user.last_name}}</h5>
+                <h4 class="fw-bold" style="color: #000201;">Welcome</h4>
+                <h5 class="fw-bold" style="color: #000201;">{{current_user.first_name}} {{current_user.last_name}}</h5>
                 {% endif %}
             </div>
         </nav>
@@ -183,7 +183,7 @@
         </div>
             
         <div class="w-25">
-            <img id="logo_img_footer" class="mt-4" src="{% static 'img\logo_transparent_black_background.png' %}" alt="logo_transparent_dark_background">
+            <img id="logo_img_footer" class="mt-4" src="{% static 'img\logo_transparent_white_background.png' %}" alt="logo_transparent_dark_background">
         </div>
         
     </footer>
