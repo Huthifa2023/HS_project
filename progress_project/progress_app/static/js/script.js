@@ -20,7 +20,7 @@ hamburger.addEventListener("click", toggleMenu);
 
 
 // slider
-$('.carousel').carousel()
+// $('.carousel').carousel()
 
 
 
@@ -53,3 +53,10 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
 
+//$(".close").click(function(){
+ //   $(this).parent().fadeOut();
+ //});
+
+$( "button.close" ).on( "click", function() {
+    $( "div.alert" ).fadeOut("slow")
+    });
