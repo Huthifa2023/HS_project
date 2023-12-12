@@ -40,4 +40,10 @@ Progress Security and Communications contains more features like:
 ![aboutuspage](https://github.com/Huthifa2023/HS_project/assets/146379471/55e079b7-f0aa-49a5-94f6-5a60347d8aeb)
 
 ### Contact Us page
+![contactuspage](https://github.com/Huthifa2023/HS_project/assets/146379471/6d81110b-d1ef-4b24-9438-4b04b7e7c468)
+
+## Progress Group
+
+1. Huthifa Alqasim
+2. Shahrazad Masalmah
 
