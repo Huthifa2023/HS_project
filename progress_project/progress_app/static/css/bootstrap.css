@@ -10064,10 +10064,10 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .hamburger {
-  position: fixed;
+  position: relative;
   z-index: 100;
-  top: 9rem;
-  right: 3rem;
+  top: 4rem;
+  right: 0.1rem;
   padding: 4px;
   border: none;
   background: transparent;
@@ -10085,15 +10085,16 @@ a.text-dark:hover, a.text-dark:focus {
   top: 0;
   left: 85%;
   right: 0;
-  bottom: 20%;
+  bottom: 0;
   z-index: 99;
-  background-color: whitesmoke;
   color: white;
   list-style: none;
   padding-top: 4rem;
+  background: rgb(41,94,114);
+  background: linear-gradient(354deg, rgba(41,94,114,1) 11%, rgba(20,37,61,1) 81%, rgba(10,24,28,1) 100%);
 }
 .menuItem{
-  color: #14253d;
+  color: white;
 }
 
 .showMenu {
@@ -10148,13 +10149,13 @@ footer{
   margin-top: auto;
   color: white;
   /* background-color: #14253d; */
-  background: url(https://4kwallpapers.com/images/walls/thumbs_3t/9238.png);
+  background: url(https://4kwallpapers.com/images/walls/thumbs_3t/9243.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 header{
-  background: url(https://4kwallpapers.com/images/walls/thumbs_3t/9238.png);
+  background: url(https://4kwallpapers.com/images/walls/thumbs_3t/9243.png);
   background-repeat: no-repeat;
   background-size: cover;
 } 
