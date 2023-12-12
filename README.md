@@ -19,3 +19,6 @@ Progress Security and Communications contains more features like:
 10. There is a separate page for how to contact the company. 
 
 ## Screenshots
+
+### Home Page
+![homepage](https://github.com/Huthifa2023/HS_project/assets/146379471/76ec6f6b-5291-4a75-be77-fda8a9dcfad3)
