@@ -32,3 +32,6 @@ Progress Security and Communications contains more features like:
 
 ###Products Page
 ![productspage](https://github.com/Huthifa2023/HS_project/assets/146379471/8ce136db-fd65-41a8-bf60-840b17224a0e)
+
+###View Product Page
+![viewproduct](https://github.com/Huthifa2023/HS_project/assets/146379471/58b47aea-2d57-481f-9266-e4a496205937)
